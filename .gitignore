@@ -1,0 +1,15 @@
+# Ignore all bytecode files
+*.pyc
+__pycache__/
+
+# Ignore environment variables and virtual environments
+.env
+venv/
+env/
+
+# Ignore system files
+*.sqlite3
+.DS_Store
+
+# Ignore static files
+/staticfiles/
