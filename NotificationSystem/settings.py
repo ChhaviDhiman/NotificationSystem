@@ -56,8 +56,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "NotificationSystem.urls"
-CORS_ALLOW_ALL_ORIGINS = True
 
+CORS_ALLOWED_ORIGINS = [
+    "https://aicaradvisor.com",
+    "https://a5db-2402-3a80-1bda-874d-c570-6949-b749-cdfa.ngrok-free.app",
+]
+
+# Allow credentials if needed
+CORS_ALLOW_CREDENTIALS = True
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -72,10 +78,6 @@ TEMPLATES = [
             ],
         },
     },
-]
-CORS_ALLOWED_ORIGINS = [
-    "https://aicaradvisor.com",
-    "https://your-other-allowed-domain.com"
 ]
 
 WSGI_APPLICATION = "NotificationSystem.wsgi.application"
