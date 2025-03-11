@@ -55,7 +55,18 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 ROOT_URLCONF = "NotificationSystem.urls"
+
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST","PUT",
+)
 
 CORS_ALLOWED_ORIGINS = [
     "https://aicaradvisor.com",
@@ -87,9 +98,9 @@ WSGI_APPLICATION = "NotificationSystem.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'target.sqlite3',  # Use the existing database
     }
 }
 
@@ -140,6 +151,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    )
 }
